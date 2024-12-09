@@ -1,0 +1,42 @@
+<div class="min-h-screen flex">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+    <div class="p-6">
+      <aplz-ui-logo size="sm" (click)="navigateToHome()" class="cursor-pointer"></aplz-ui-logo>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="flex-1">
+      <a aplzSidenavLink [routerLink]="[appRoutes.home]">
+        Inicio
+      </a>
+      <a aplzSidenavLink [routerLink]="[appRoutes.historial]">
+        Historial
+      </a>
+    </nav>
+
+    <!-- Cerrar sesión -->
+    <button
+      (click)="logout()"
+      class="w-full bg-[#2D2D2D] text-white py-3 px-6  font-medium text-sm uppercase tracking-wide hover:bg-[#404040] disabled:opacity-50 disabled:cursor-not-allowed mt-8"
+    >
+      Cerrar sesión
+    </button>
+  </aside>
+
+  <!-- Contenido Principal -->
+  <div class="flex-1">
+    <!-- Header -->
+    <header class="bg-white  border-gray-200 px-6 py-4">
+       <!-- título dinámico -->
+        <aplz-ui-dash-header >
+          <h1 class="font-medium text-2xl text-gray-900">{{ pageTitle }}</h1>
+        </aplz-ui-dash-header>
+    </header>
+
+    <!-- Main Content -->
+    <main class="bg-gray-100 min-h-[calc(100vh-64px)]">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
